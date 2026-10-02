@@ -43,10 +43,13 @@ const Hero = () => {
   }, [displayText, isDeleting, currentRoleIndex, typingSpeed]);
 
   // Image replacement location: public/profile-placeholder.jpg (or src/assets)
-  const profileImageUrl = "/public/Ahmed_hero_img.jpeg";
+  const profileImageUrl = "/Ahmed_hero_img.jpeg";
 
   return (
-    <section id="home" className="relative flex min-h-[90svh] items-center sm:min-h-[95svh]">
+    <section
+      id="home"
+      className="relative flex min-h-[90svh] items-center sm:min-h-[95svh]"
+    >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Side */}

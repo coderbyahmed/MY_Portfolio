@@ -1,24 +1,22 @@
-
-
 import { useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-import analogClockImg from "../../assets/images/JavaScript/Analog_Clock_img.png";
-import calculatorImg from "../../assets/images/JavaScript/Calculater_img.png";
-import digitalClockImg from "../../assets/images/JavaScript/Digital_Clock_img.png";
-import movieAppImg from "../../assets/images/JavaScript/Movie_App_img.png";
-import schoolsInfoImg from "../../assets/images/JavaScript/SchoolS_Info_img.png";
-import todoAppImg from "../../assets/images/JavaScript/Todo_App_img.png";
-import weatherAppImg from "../../assets/images/JavaScript/Weather_App_img.png";
+import analogClockImg from "../../assets/images/javascript/Analog_Clock_img.png";
+import calculatorImg from "../../assets/images/javascript/Calculater_img.png";
+import digitalClockImg from "../../assets/images/javascript/Digital_Clock_img.png";
+import movieAppImg from "../../assets/images/javascript/Movie_App_img.png";
+import schoolsInfoImg from "../../assets/images/javascript/SchoolS_Info_img.png";
+import todoAppImg from "../../assets/images/javascript/Todo_App_img.png";
+import weatherAppImg from "../../assets/images/javascript/Weather_App_img.png";
 
-import ecommerceImg from "../../assets/images/React/E_Commerce_ianding_page_img.png";
-import playtubeImg from "../../assets/images/React/Play_Tube_img.png";
-import techVisionImg from "../../assets/images/React/Tech_Vision_Institute_img.png";
-import reactTodoImg from "../../assets/images/React/Todo_app_img.png";
+import ecommerceImg from "../../assets/images/react/E_Commerce_ianding_page_img.png";
+import playtubeImg from "../../assets/images/react/Play_Tube_img.png";
+import techVisionImg from "../../assets/images/react/Tech_Vision_Institute_img.png";
+import reactTodoImg from "../../assets/images/react/Todo_app_img.png";
 
-import assetMgmtImg from "../../assets/images/Backend/Asset_Management_img.png";
-import firebaseLoginImg from "../../assets/images/Backend/Firebase_login_Signup_img.png";
-import firebaseUserMgmtImg from "../../assets/images/Backend/Firebase_User_management_System_img.png";
+import assetMgmtImg from "../../assets/images/backend/Asset_Management_img.png";
+import firebaseLoginImg from "../../assets/images/backend/Firebase_login_Signup_img.png";
+import firebaseUserMgmtImg from "../../assets/images/backend/Firebase_User_management_System_img.png";
 
 const projectsData = [
   {
@@ -249,13 +247,7 @@ const projectsData = [
   },
 ];
 
-const filters = [
-  "All",
-  "JavaScript",
-  "React",
-  "Backend",
-  "Full Stack",
-];
+const filters = ["All", "JavaScript", "React", "Backend", "Full Stack"];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -268,7 +260,10 @@ const Projects = () => {
             return project.category.includes("Backend");
           }
           if (activeFilter === "JavaScript") {
-            return project.category.includes("JavaScript") && project.category.length === 1;
+            return (
+              project.category.includes("JavaScript") &&
+              project.category.length === 1
+            );
           }
           return project.category.includes(activeFilter);
         });
@@ -346,28 +341,32 @@ const Projects = () => {
                   <div className="absolute inset-0 bg-slate-950/0 transition-all duration-300 group-hover:bg-slate-950/60" />
                   {/* Overlay Buttons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {project.github && project.github.trim() !== "" && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-slate-50/20 bg-slate-950/80 px-4 py-2 text-sm font-medium text-slate-50 backdrop-blur-sm transition-all hover:border-slate-50/40 hover:bg-slate-950/90"
-                    >
-                      <FaGithub className="h-4 w-4" />
-                      GitHub
-                    </a>
-                  )}
-                  {project.liveDemo && project.liveDemo.trim() !== "" && (
-                    <a
-                      href={project.liveDemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-sky-500/40 bg-sky-500/20 px-4 py-2 text-sm font-medium text-sky-200 backdrop-blur-sm transition-all hover:border-sky-400/60 hover:bg-sky-500/30"
-                    >
-                      <FaExternalLinkAlt className="h-4 w-4" />
-                      Live Demo
-                    </a>
-                  )}
+                    {project.github &&
+                      project.github.trim() !== "" &&
+                      project.github !== "#" && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 border border-slate-50/20 bg-slate-950/80 px-4 py-2 text-sm font-medium text-slate-50 backdrop-blur-sm transition-all hover:border-slate-50/40 hover:bg-slate-950/90"
+                        >
+                          <FaGithub className="h-4 w-4" />
+                          GitHub
+                        </a>
+                      )}
+                    {project.liveDemo &&
+                      project.liveDemo.trim() !== "" &&
+                      project.liveDemo !== "#" && (
+                        <a
+                          href={project.liveDemo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 border border-sky-500/40 bg-sky-500/20 px-4 py-2 text-sm font-medium text-sky-200 backdrop-blur-sm transition-all hover:border-sky-400/60 hover:bg-sky-500/30"
+                        >
+                          <FaExternalLinkAlt className="h-4 w-4" />
+                          Live Demo
+                        </a>
+                      )}
                   </div>
                 </div>
 
