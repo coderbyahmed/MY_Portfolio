@@ -1,0 +1,38 @@
+%PDF-1.4
+1 0 obj<< /Type/Catalog/Pages 2 0 R>>endobj
+2 0 obj<< /Type/Pages/Kids[3 0 R]/Count 1>>endobj
+3 0 obj<< /Type/Page/Parent 2 0 R/MediaBox[0 0 612 792]/Resources<< /Font<< /F1 4 0 R>> >>/Contents 5 0 R>>endobj
+4 0 obj<< /Type/Font/Subtype/Type1/BaseFont/Helvetica-Bold>>endobj
+5 0 obj<< /Length 820 >>stream
+BT
+/F1 20 Tf 50 730 Td (Muhammad Ahmed) Tj
+/F1 9 Tf 0 -16 Td (Backend-Focused Full Stack Developer) Tj
+0 -20 Td (Email: ahmedazizkhan405@gmail.com | GitHub: github.com/coderbyahmed | LinkedIn: linkedin.com/in/coderby-ahmad-415543374/) Tj
+0 -30 Td /F1 10 Tf (PROFILE) Tj
+/F1 9 Tf 0 -14 Td (Backend-Focused Full Stack Developer with practical experience building REST APIs, database-driven applications and full-stack web systems using Node.js, Express.js, MongoDB and React.) Tj
+0 -24 Td /F1 10 Tf (BACKEND EXPERTISE) Tj
+/F1 9 Tf 0 -14 Td (Node.js, Express.js, REST API Development, MongoDB, Mongoose, JWT Authentication, Middleware, API Validation) Tj
+0 -24 Td /F1 10 Tf (DATABASES) Tj
+/F1 9 Tf 0 -14 Td (MongoDB, MySQL, Microsoft SQL Server) Tj
+0 -24 Td /F1 10 Tf (FRONTEND) Tj
+/F1 9 Tf 0 -14 Td (JavaScript, React, HTML5, CSS3, Tailwind CSS) Tj
+0 -24 Td /F1 10 Tf (TOOLS / API) Tj
+/F1 9 Tf 0 -14 Td (Git, GitHub, Postman, Axios, Cloudinary) Tj
+0 -24 Td /F1 10 Tf (SELECTED PROJECTS) Tj
+/F1 9 Tf 0 -14 Td (School Management System - Backend-focused system managing students, classes, attendance using Node.js, Express.js, MongoDB.) Tj
+0 -12 Td (Cartify API - RESTful e-commerce API with auth, products/carts/orders, Joi, Multer, Cloudinary.) Tj
+0 -12 Td (MarketLink - Marketplace with REST APIs, role-based access, React + Node.js + MongoDB.) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f
+0000000010 00000 n
+0000000056 00000 n
+0000000111 00000 n
+0000000228 00000 n
+0000000298 00000 n
+trailer<< /Size 6 /Root 1 0 R >>startxref
+1178
+%%EOF
