@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiDownload } from "react-icons/fi";
 import Logo from "./Logo";
+
+const RESUME_FILE = "/Muhammad_Ahmed_Resume.pdf";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -58,14 +60,24 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 border border-slate-800/80 bg-slate-900/80 px-5 py-2 text-sm font-medium tracking-wide text-slate-50 transition-all hover:border-sky-400/50 hover:text-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 focus:ring-offset-2 focus:ring-offset-[#050816]"
-          >
-            Let's Talk
-            <FiArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          {/* CTA Buttons: Resume | Let's Talk */}
+          <div className="flex items-center gap-3">
+            <a
+              href={RESUME_FILE}
+              download="Muhammad_Ahmed_Resume.pdf"
+              className="group inline-flex items-center gap-2 border border-sky-500/40 bg-sky-500/10 px-5 py-2 text-sm font-medium tracking-wide text-sky-300 transition-all hover:border-sky-400/60 hover:bg-sky-500/15 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/20 focus:ring-offset-2 focus:ring-offset-[#050816]"
+            >
+              <FiDownload className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              Resume
+            </a>
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 border border-slate-800/80 bg-slate-900/80 px-5 py-2 text-sm font-medium tracking-wide text-slate-50 transition-all hover:border-sky-400/50 hover:text-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 focus:ring-offset-2 focus:ring-offset-[#050816]"
+            >
+              Let's Talk
+              <FiArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -96,11 +108,20 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
-              <li>
+              <li className="mt-4 flex items-center gap-3">
+                <a
+                  href={RESUME_FILE}
+                  download="Muhammad_Ahmed_Resume.pdf"
+                  onClick={closeMenu}
+                  className="inline-flex flex-1 items-center justify-center gap-2 border border-sky-500/40 bg-sky-500/10 px-4 py-2.5 text-sm font-medium tracking-wide text-sky-300 transition-all hover:border-sky-400/60 hover:bg-sky-500/15"
+                >
+                  <FiDownload className="h-4 w-4" />
+                  Resume
+                </a>
                 <a
                   href="#contact"
                   onClick={closeMenu}
-                  className="mt-4 inline-flex w-full items-center justify-center gap-2 border border-slate-800/80 bg-slate-900/80 px-4 py-2.5 text-sm font-medium tracking-wide text-slate-50 transition-all hover:border-sky-400/50 hover:text-sky-400"
+                  className="inline-flex flex-1 items-center justify-center gap-2 border border-slate-800/80 bg-slate-900/80 px-4 py-2.5 text-sm font-medium tracking-wide text-slate-50 transition-all hover:border-sky-400/50 hover:text-sky-400"
                 >
                   Let's Talk
                   <FiArrowUpRight className="h-4 w-4" />

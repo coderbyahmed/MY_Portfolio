@@ -18,6 +18,10 @@ import assetMgmtImg from "../../assets/images/backend/Asset_Management_img.png";
 import firebaseLoginImg from "../../assets/images/backend/Firebase_login_Signup_img.png";
 import firebaseUserMgmtImg from "../../assets/images/backend/Firebase_User_management_System_img.png";
 
+import soundGroupImg from "../../assets/images/fullStack/Sound_Group_img.png";
+// Temporary placeholder — replace with the real Cartify screenshot when available.
+import cartifyImg from "../../assets/images/fullStack/Cartify_placeholder_img.svg";
+
 const projectsData = [
   {
     id: 10,
@@ -148,8 +152,8 @@ const projectsData = [
     image: assetMgmtImg,
     category: ["Backend"],
     technologies: ["HTML", "CSS", "JavaScript", "Firebase"],
-    github: "",
-    liveDemo: "",
+    github: "https://github.com/coderbyahmed/Saylani_Mini_Hackthon.git",
+    liveDemo: "https://saylani-mini-hackthon.vercel.app/pages/auth/signup.html",
   },
   {
     id: 22,
@@ -159,8 +163,8 @@ const projectsData = [
     image: firebaseLoginImg,
     category: ["Backend"],
     technologies: ["HTML", "CSS", "JavaScript", "Firebase"],
-    github: "",
-    liveDemo: "",
+    github: "https://github.com/coderbyahmed/firebase-login-signup.git",
+    liveDemo: "https://firebase-login-signup-zeta.vercel.app/",
   },
   {
     id: 23,
@@ -170,80 +174,40 @@ const projectsData = [
     image: firebaseUserMgmtImg,
     category: ["Backend"],
     technologies: ["HTML", "CSS", "JavaScript", "Firebase"],
-    github: "",
+    github: "https://github.com/coderbyahmed/firebase-user-management-system.git",
+    liveDemo: "https://firebase-user-management-system-omega.vercel.app/signup.html",
+  },
+  {
+    id: 24,
+    title: "Sound Group",
+    description:
+      "A complete Sound Group web application for music and video content, featuring a public-facing website along with a complete admin panel built with PHP.",
+    image: soundGroupImg,
+    category: ["Full Stack"],
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "PHP Mailer"],
+    github: "https://github.com/coderbyahmed/APTECH_E-PROJECT_SM-2.git",
+    liveDemo: "https://soundgroup.infinityfreeapp.com/frontend/website/index.php",
+  },
+  {
+    id: 25,
+    title: "Cartify",
+    description:
+      "An e-commerce backend API currently under development, built with Node.js and Express.js, providing authentication, product management, image uploads and database-driven REST APIs.",
+    image: cartifyImg,
+    category: ["Full Stack"],
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "bcrypt",
+      "Joi",
+      "Multer",
+      "Cloudinary",
+    ],
+    github: "https://github.com/coderbyahmed/Cartify.git",
     liveDemo: "",
-  },
-  {
-    id: 1,
-    title: "Cartify API",
-    description:
-      "A RESTful e-commerce API built for managing products, carts, users, and orders with secure authentication and clean modular architecture.",
-    image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
-    category: ["Node.js", "Express.js", "Backend", "Full Stack"],
-    technologies: ["Node.js", "Express.js", "MongoDB", "JWT"],
-    github: "#",
-    liveDemo: "#",
-  },
-  {
-    id: 2,
-    title: "School Management System",
-    description:
-      "A backend-focused management system designed to handle students, classes, attendance, and administrative workflows with structured data models.",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
-    category: ["Node.js", "Express.js", "Backend", "Full Stack"],
-    technologies: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
-    github: "#",
-    liveDemo: "#",
-  },
-  {
-    id: 3,
-    title: "MarketLink",
-    description:
-      "A marketplace-focused application with REST API endpoints, product management, and data validation to ensure reliable transactions.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
-    category: ["React", "Full Stack"],
-    technologies: ["React", "JavaScript", "Axios", "REST API"],
-    github: "#",
-    liveDemo: "#",
-  },
-  {
-    id: 4,
-    title: "LinkUp",
-    description:
-      "A social connectivity platform API with authentication, middleware, and structured routes focused on scalability and maintainability.",
-    image:
-      "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
-    category: ["Node.js", "Express.js", "Backend", "Full Stack"],
-    technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Joi"],
-    github: "#",
-    liveDemo: "#",
-  },
-  {
-    id: 5,
-    title: "TaskFlow",
-    description:
-      "A task management application with a clean React interface and structured API integration for seamless data flow and state management.",
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
-    category: ["React"],
-    technologies: ["React", "JavaScript", "Tailwind CSS", "Axios"],
-    github: "#",
-    liveDemo: "#",
-  },
-  {
-    id: 6,
-    title: "API Gateway Base",
-    description:
-      "A clean REST API boilerplate focused on request validation, middleware, and error handling for scalable backend development.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
-    category: ["Node.js", "Express.js", "Backend"],
-    technologies: ["Node.js", "Express.js", "Joi", "REST API"],
-    github: "#",
-    liveDemo: "#",
   },
 ];
 
@@ -252,21 +216,13 @@ const filters = ["All", "JavaScript", "React", "Backend", "Full Stack"];
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
+  // Filtering is driven strictly by the project's category field.
   const filteredProjects =
     activeFilter === "All"
       ? projectsData
-      : projectsData.filter((project) => {
-          if (activeFilter === "Backend") {
-            return project.category.includes("Backend");
-          }
-          if (activeFilter === "JavaScript") {
-            return (
-              project.category.includes("JavaScript") &&
-              project.category.length === 1
-            );
-          }
-          return project.category.includes(activeFilter);
-        });
+      : projectsData.filter((project) =>
+          project.category.includes(activeFilter)
+        );
 
   return (
     <section id="projects" className="relative py-14 sm:py-16 lg:py-20">

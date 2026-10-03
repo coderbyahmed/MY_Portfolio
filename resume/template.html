@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Muhammad Ahmed — Resume</title>
+<style>
+  /* ---------- Embedded fonts ----------
+     Static (non-variable) instances on purpose: Chrome's PDF writer converts
+     variable fonts into Type3 glyph procedures, which makes the text
+     non-searchable and breaks ATS parsing. Static faces embed as real
+     TrueType subsets with extractable text. */
+  @font-face { font-family: 'Inter'; font-weight: 400; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{INTER_400}}) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 500; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{INTER_500}}) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 600; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{INTER_600}}) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 700; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{INTER_700}}) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 800; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{INTER_800}}) format('woff2'); }
+  @font-face { font-family: 'JetBrains Mono'; font-weight: 500; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{MONO_500}}) format('woff2'); }
+  @font-face { font-family: 'JetBrains Mono'; font-weight: 600; font-style: normal; font-display: block;
+    src: url(data:font/woff2;base64,{{MONO_600}}) format('woff2'); }
+
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg:        #050816;
+    --panel:     #0b1220;
+    --panel-2:   rgba(15, 23, 42, 0.55);
+    --line:      #1e293b;
+    --line-soft: rgba(30, 41, 59, 0.65);
+    --ink:       #f8fafc;
+    --ink-2:     #e2e8f0;
+    --ink-3:     #94a3b8;
+    --ink-4:     #8593a6;
+    --sky:       #38bdf8;
+    --sky-2:     #7dd3fc;
+    --sky-deep:  #0ea5e9;
+    --amber:     #fbbf24;
+  }
+
+  @page { size: A4 portrait; margin: 0; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    background: var(--bg);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    background:
+      radial-gradient(620px 420px at 88% -6%, rgba(56,189,248,0.13), transparent 62%),
+      radial-gradient(520px 420px at -8% 104%, rgba(99,102,241,0.12), transparent 62%),
+      var(--bg);
+    display: flex;
+    flex-direction: column;
+    padding: 0 13mm 0;
+  }
+
+  /* ---------- Top accent strip ---------- */
+  .top-strip {
+    height: 1.6mm;
+    margin: 0 -13mm;
+    background: linear-gradient(90deg, var(--sky-deep), var(--sky) 45%, #6366f1 100%);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 7mm;
+    padding: 7mm 0 5mm;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .avatar-wrap {
+    position: relative;
+    width: 30mm;
+    height: 30mm;
+    flex: 0 0 30mm;
+  }
+  .avatar-ring {
+    position: absolute;
+    inset: -1.6mm;
+    border-radius: 50%;
+    background: conic-gradient(from 210deg, rgba(56,189,248,0.55), rgba(56,189,248,0.06) 40%, rgba(99,102,241,0.4) 78%, rgba(56,189,248,0.55));
+    filter: blur(2.2px);
+  }
+  .avatar {
+    position: relative;
+    width: 30mm;
+    height: 30mm;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1mm solid var(--sky-deep);
+    background: var(--panel);
+    box-shadow: 0 0 0 0.5mm rgba(5,8,22,1), 0 6mm 16mm -6mm rgba(14,165,233,0.55);
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* exact same framing as the portfolio hero (square + cover + center) */
+    object-position: center center;
+    display: block;
+  }
+
+  .ident { min-width: 0; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 2mm;
+    font-size: 6.6pt;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 2.4mm;
+  }
+  .eyebrow .sq { width: 1.6mm; height: 1.6mm; background: var(--sky); border-radius: 0.3mm; }
+
+  h1 {
+    font-size: 27pt;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.022em;
+    color: #ffffff;
+  }
+  .role {
+    margin-top: 2mm;
+    font-size: 11pt;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--sky-2);
+  }
+  .rule {
+    margin-top: 3mm;
+    width: 26mm;
+    height: 1mm;
+    background: linear-gradient(90deg, var(--sky), rgba(56,189,248,0));
+    border-radius: 1mm;
+  }
+
+  /* ---------- Contact row ---------- */
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.8mm 5mm;
+    padding: 4.2mm 0 4.6mm;
+    border-bottom: 1px solid var(--line);
+  }
+  .c {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.8mm;
+    font-size: 8.1pt;
+    font-weight: 500;
+    color: var(--ink-3);
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .c svg { width: 3.5mm; height: 3.5mm; stroke: var(--sky); flex: 0 0 auto; }
+  .c b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- Body columns ---------- */
+  .cols {
+    flex: 1;
+    display: flex;
+    gap: 7mm;
+    padding-top: 5mm;
+    min-height: 0;
+  }
+  .main { width: 113mm; flex: 0 0 113mm; display: flex; flex-direction: column; }
+  .side { flex: 1; display: flex; flex-direction: column; gap: 6.5mm; }
+
+  /* ---------- Section header ---------- */
+  .sec { margin-bottom: 4.2mm; }
+  .sec:last-child { margin-bottom: 0; }
+  .shead { display: flex; align-items: center; gap: 2.6mm; margin-bottom: 3.2mm; }
+  .shead .bar { width: 1mm; height: 4mm; background: var(--sky); border-radius: 0.4mm; flex: 0 0 auto; }
+  .shead .t {
+    font-size: 8.4pt; font-weight: 700; letter-spacing: 0.17em;
+    text-transform: uppercase; color: var(--ink-2); white-space: nowrap;
+  }
+  .shead .ln { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), rgba(30,41,59,0)); }
+
+  /* ---------- Summary ---------- */
+  .summary {
+    font-size: 8.5pt;
+    line-height: 1.62;
+    color: var(--ink-3);
+    border-left: 1.1mm solid rgba(56,189,248,0.5);
+    padding-left: 3.6mm;
+  }
+  .summary strong { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- Bullets ---------- */
+  ul.bul { list-style: none; display: flex; flex-direction: column; gap: 1.55mm; }
+  ul.bul li {
+    position: relative;
+    padding-left: 4mm;
+    font-size: 8.3pt;
+    line-height: 1.5;
+    color: var(--ink-3);
+  }
+  ul.bul li::before {
+    content: '';
+    position: absolute;
+    left: 0.4mm;
+    top: 1.45mm;
+    width: 1.5mm;
+    height: 1.5mm;
+    border-radius: 50%;
+    background: var(--sky);
+    box-shadow: 0 0 0 0.7mm rgba(56,189,248,0.13);
+  }
+  ul.bul li b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- Projects ---------- */
+  .proj {
+    position: relative;
+    padding: 3mm 4mm 3.1mm 4.2mm;
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-left: 1.15mm solid var(--sky);
+    border-radius: 0 1.6mm 1.6mm 0;
+    margin-bottom: 3mm;
+  }
+  .proj:last-child { margin-bottom: 0; }
+  .proj .top { display: flex; align-items: center; gap: 2.4mm; flex-wrap: wrap; }
+  .proj .name { font-size: 10.2pt; font-weight: 700; color: #fff; letter-spacing: -0.005em; }
+  .proj .kind { font-size: 7.4pt; font-weight: 600; color: var(--ink-4); letter-spacing: 0.02em; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 1.2mm;
+    font-size: 6.3pt; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+    padding: 0.9mm 2mm; border-radius: 10mm;
+    border: 1px solid rgba(251,191,36,0.36);
+    background: rgba(251,191,36,0.10);
+    color: #fcd34d;
+  }
+  .badge .dot { width: 1.2mm; height: 1.2mm; border-radius: 50%; background: var(--amber); }
+  .badge.done {
+    border-color: rgba(56,189,248,0.34);
+    background: rgba(56,189,248,0.10);
+    color: var(--sky-2);
+  }
+  .badge.done .dot { background: var(--sky); }
+
+  .proj p {
+    margin-top: 1.9mm;
+    font-size: 8.15pt;
+    line-height: 1.5;
+    color: var(--ink-3);
+  }
+  .proj p b { color: var(--ink-2); font-weight: 600; }
+
+  .ptech {
+    display: flex; flex-wrap: wrap; gap: 1.4mm; margin-top: 2.2mm;
+  }
+  .ptech span {
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7.2pt;
+    font-weight: 500;
+    color: #b3c0cf;
+    padding: 0.8mm 1.8mm;
+    border-radius: 0.9mm;
+    background: rgba(30,41,59,0.62);
+    border: 1px solid var(--line-soft);
+  }
+
+  /* ---------- Skills ---------- */
+  .sgroup {
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-radius: 1.7mm;
+    padding: 3.8mm 4mm 4mm;
+  }
+  .sgroup .lbl {
+    display: flex; align-items: center; gap: 1.8mm;
+    font-size: 7.2pt; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--sky); margin-bottom: 3mm;
+  }
+  .sgroup .lbl .sq { width: 1.3mm; height: 1.3mm; border-radius: 0.3mm; background: var(--sky); }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.8mm; }
+  .chip {
+    font-size: 7.8pt;
+    font-weight: 500;
+    color: var(--ink-2);
+    padding: 1.3mm 2.5mm;
+    border-radius: 1.1mm;
+    background: rgba(56,189,248,0.08);
+    border: 1px solid rgba(56,189,248,0.20);
+  }
+
+  /* ---------- Compact project list (side column) ---------- */
+  .mini { display: flex; flex-direction: column; gap: 1.9mm; }
+  .mrow {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 2mm;
+    padding-bottom: 1.8mm;
+    border-bottom: 1px dashed rgba(30,41,59,0.85);
+  }
+  .mrow:last-child { border-bottom: 0; padding-bottom: 0; }
+  .mrow .mn { font-size: 7.7pt; font-weight: 500; color: var(--ink-2); letter-spacing: -0.002em; }
+  .mrow .mt {
+    font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    font-size: 7pt; font-weight: 500; color: var(--ink-4);
+    white-space: nowrap; flex: 0 0 auto;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: auto;
+    padding: 3.4mm 0 6mm;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between; gap: 4mm;
+  }
+  footer .fl { font-size: 7.3pt; letter-spacing: 0.06em; color: var(--ink-4); }
+  footer .fr { font-size: 7.3pt; letter-spacing: 0.04em; color: var(--ink-4); display: flex; align-items: center; gap: 2mm; }
+  footer .fr svg { width: 3mm; height: 3mm; stroke: var(--ink-4); }
+  footer .fr b { color: var(--ink-3); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-strip"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">
+        <img src="data:image/jpeg;base64,{{AVATAR_B64}}" alt="Muhammad Ahmed" />
+      </div>
+    </div>
+
+    <div class="ident">
+      <div class="eyebrow"><span class="sq"></span>Resume / Curriculum Vitae</div>
+      <h1>MUHAMMAD AHMED</h1>
+      <div class="role">Backend-Focused Full Stack Developer</div>
+      <div class="rule"></div>
+    </div>
+  </header>
+
+  <!-- ============ CONTACT ============ -->
+  <div class="contact">
+    <a class="c" href="mailto:ahmedazizkhan405@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <b>ahmedazizkhan405@gmail.com</b>
+    </a>
+    <a class="c" href="https://wa.me/923178497732">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <b>+92 317 8497732</b>
+    </a>
+    <span class="c">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Pakistan
+    </span>
+    <a class="c" href="https://github.com/coderbyahmed">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      github.com/coderbyahmed
+    </a>
+    <a class="c" href="https://www.linkedin.com/in/coderby-ahmad-415543374/">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/coderby-ahmad
+    </a>
+  </div>
+
+  <!-- ============ BODY ============ -->
+  <div class="cols">
+
+    <!-- ---------- MAIN COLUMN ---------- -->
+    <div class="main">
+
+      <div class="sec">
+        <div class="shead"><span class="bar"></span><span class="t">Professional Summary</span><span class="ln"></span></div>
+        <p class="summary">
+          <strong>Backend-Focused Full Stack Developer</strong> with hands-on experience building REST APIs,
+          authentication systems, database-driven applications and complete web projects using
+          Node.js, Express.js, MongoDB and React. Focused on clean, modular architecture with strong
+          emphasis on scalability, maintainability and secure, reliable API design.
+        </p>
+      </div>
+
+      <div class="sec">
+        <div class="shead"><span class="bar"></span><span class="t">Backend Expertise</span><span class="ln"></span></div>
+        <ul class="bul">
+          <li><b>REST API Development</b> — clean routing, modular controllers and centralised error handling.</li>
+          <li><b>Authentication &amp; Authorization</b> — JWT-based token security with protected routes.</li>
+          <li><b>Secure Password Handling</b> — bcrypt hashing for credential storage.</li>
+          <li><b>CRUD Operations</b> — complete create, read, update and delete application logic.</li>
+          <li><b>MongoDB &amp; Mongoose</b> — schema design, relationships and efficient data modelling.</li>
+          <li><b>File Uploads</b> — Multer processing with Cloudinary cloud storage integration.</li>
+          <li><b>API Validation</b> — Joi schemas for reliable request and payload validation.</li>
+          <li><b>Middleware Architecture</b> — reusable layers for auth, logging and route protection.</li>
+        </ul>
+      </div>
+
+      <div class="sec">
+        <div class="shead"><span class="bar"></span><span class="t">Selected Projects</span><span class="ln"></span></div>
+
+        <div class="proj">
+          <div class="top">
+            <span class="name">Cartify</span>
+            <span class="kind">— E-commerce Backend API</span>
+            <span class="badge"><span class="dot"></span>In Development</span>
+          </div>
+          <p>
+            E-commerce <b>backend and REST API</b> project currently in development, built with
+            Node.js and Express.js. Implements <b>JWT authentication</b> with bcrypt password hashing,
+            <b>Joi</b> request validation and <b>product management</b> with image uploads through
+            Multer and Cloudinary, persisted via MongoDB and Mongoose. The API layer is the current
+            focus of development; the frontend is not yet complete.
+          </p>
+          <div class="ptech">
+            <span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>Mongoose</span>
+            <span>JWT</span><span>bcrypt</span><span>Joi</span><span>Multer</span><span>Cloudinary</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="top">
+            <span class="name">Sound Group</span>
+            <span class="kind">— Full Stack Web Platform</span>
+            <span class="badge done"><span class="dot"></span>Completed</span>
+          </div>
+          <p>
+            Completed <b>full-stack website</b> for music and video content, delivering both a
+            <b>user-facing website</b> and a complete <b>admin panel</b> for managing content.
+            Built with HTML, CSS, JavaScript and PHP, with <b>PHP Mailer</b> handling
+            email functionality.
+          </p>
+          <div class="ptech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>PHP Mailer</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ---------- SIDE COLUMN ---------- -->
+    <div class="side">
+
+      <div class="sec">
+        <div class="shead"><span class="bar"></span><span class="t">Technical Skills</span><span class="ln"></span></div>
+
+        <div style="display:flex; flex-direction:column; gap:2.8mm;">
+          <div class="sgroup">
+            <div class="lbl"><span class="sq"></span>Backend</div>
+            <div class="chips">
+              <span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST API</span>
+              <span class="chip">Mongoose</span><span class="chip">JWT</span><span class="chip">Middleware</span>
+              <span class="chip">Joi</span><span class="chip">bcrypt</span>
+            </div>
+          </div>
+
+          <div class="sgroup">
+            <div class="lbl"><span class="sq"></span>Databases</div>
+            <div class="chips">
+              <span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">Microsoft SQL Server</span>
+            </div>
+          </div>
+
+          <div class="sgroup">
+            <div class="lbl"><span class="sq"></span>Frontend</div>
+            <div class="chips">
+              <span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">HTML</span>
+              <span class="chip">CSS</span><span class="chip">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <div class="sgroup">
+            <div class="lbl"><span class="sq"></span>Tools &amp; Integration</div>
+            <div class="chips">
+              <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Postman</span>
+              <span class="chip">Cloudinary</span><span class="chip">Multer</span><span class="chip">Firebase</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="shead"><span class="bar"></span><span class="t">More Projects</span><span class="ln"></span></div>
+        <div class="mini">
+          <div class="mrow"><span class="mn">Asset Management System</span><span class="mt">Firebase</span></div>
+          <div class="mrow"><span class="mn">Firebase Login Signup</span><span class="mt">Auth</span></div>
+          <div class="mrow"><span class="mn">Firebase User Management</span><span class="mt">CRUD</span></div>
+          <div class="mrow"><span class="mn">E-commerce Landing Page</span><span class="mt">React</span></div>
+          <div class="mrow"><span class="mn">PlayTube</span><span class="mt">React Router</span></div>
+          <div class="mrow"><span class="mn">Tech Vision Institute</span><span class="mt">React Router</span></div>
+          <div class="mrow"><span class="mn">ToDo App</span><span class="mt">React · Firebase</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="fl">Muhammad Ahmed — Backend-Focused Full Stack Developer</div>
+    <div class="fr">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <b>github.com/coderbyahmed</b>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -25,3 +25,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Resume build artifacts (regenerate with: node resume/build.mjs)
+resume/cv.built.html
+resume/inspect.mjs
